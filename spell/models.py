@@ -13,6 +13,8 @@ class Spell(models.Model):
 	components = models.CharField(max_length=255, blank=True, null=True)
 	duration = models.CharField(max_length=255, blank=True, null=True)
 	source = models.CharField(max_length=255, blank=True, null=True)
+	ritual = models.BooleanField(default=False, blank=True, null=True)
+	concentration = models.BooleanField(default=False, blank=True, null=True)
 
 	class Meta:
 		verbose_name = _('Spell')

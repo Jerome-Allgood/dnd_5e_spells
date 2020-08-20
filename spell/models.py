@@ -9,10 +9,21 @@ class Spell(models.Model):
 		SOMATIC = 'S', _('Somatic')
 		MATERIAL = 'M', _('Material')
 
+	class Schools(models.TextChoices):
+		ILLUSION = 'IL', _('Illusion')
+		ENCHANTMENT = 'EN', _('Enchantment')
+		DIVINATION = 'DV', _('Divination')
+		NECROMANCY = 'NC', _('Necromancy')
+		EVOCATION = 'EV', _('Evocation')
+		CONJURATION = 'CN', _('Conjuration')
+		TRANSMUTATION = 'TR', _('Transmutation')
+		ABJURATION = 'AB', _('Abjuration')
+
 	name = models.CharField(max_length=255)
 	level = models.IntegerField(blank=True, null=True)
 	text = models.TextField(blank=True, null=True)
-	school = models.CharField(max_length=255, blank=True, null=True)
+	school = models.CharField(choices=Schools.choices, max_length=2, blank=True,
+							  null=True)
 	casting_time = models.CharField(max_length=255, blank=True, null=True)
 	range = models.CharField(max_length=255, blank=True, null=True)
 	materials = models.CharField(max_length=255, blank=True, null=True)

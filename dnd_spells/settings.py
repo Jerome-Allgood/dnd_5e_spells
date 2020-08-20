@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'spell',
-    'dnd_class'
+    'dnd_class',
+    'django_extensions',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [

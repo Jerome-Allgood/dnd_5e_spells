@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'dnd_class',
     'django_extensions',
     'multiselectfield',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

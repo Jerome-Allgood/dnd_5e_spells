@@ -22,5 +22,9 @@ class Command(BaseCommand):
 					duration=spell['ru']['duration'] if 'materials' in spell['ru'] else None,
 					source=spell['ru']['source'] if 'source' in spell['ru'] else None,
 					range=spell['ru']['range'] if 'range' in spell['ru'] else None,
+					name_en=spell['en']['name'].capitalize(),
+					text_en=spell['en']['text'],
+					materials_en=spell['en']['materials'] if 'materials' in spell['en'] else None,
+
 				)
 				print(f'Spell <{spell["ru"]["name"]}> added.')

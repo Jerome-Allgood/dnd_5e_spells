@@ -9,4 +9,4 @@ class SpellAdmin(admin.ModelAdmin):
 		'name', 'level', 'school', 'text', 'casting_time', 'range', 'materials',
 		'components', 'ritual', 'concentration', 'duration', 'source'
 	)
-	search_fields = ('name', 'source')
+	search_fields = ('name', 'source', 'name_en')

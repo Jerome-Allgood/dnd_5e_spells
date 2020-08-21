@@ -3,8 +3,6 @@ const API_URL = 'http://localhost:8000';
 
 export default class SpellService{
 
-    constructor(){}
-
     getSpells() {
         const url = `${API_URL}/api/spells/`;
         return axios.get(url).then(response => response.data);

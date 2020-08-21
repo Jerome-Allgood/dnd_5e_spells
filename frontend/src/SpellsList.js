@@ -16,19 +16,11 @@ class  SpellsList  extends  Component {
     componentDidMount() {
     var  self  =  this;
     spellService.getSpells().then(function (result) {
-        console.log('privet')
         console.log(result);
         self.setState({ spells:  result, nextPageURL:  result.nextlink})
     });
     }
-//     nextPage(){
-//     var  self  =  this;
-//     spellService.getSpellsByURL(this.state.nextPageURL).then((result) => {
-//         self.setState({ spells:  result.data, nextPageURL:  result.nextlink})
-//     });
-// }
 render() {
-
     return (
     <div  className="spells--list">
         <table  className="table">
@@ -57,7 +49,7 @@ render() {
                     <td>{c.level}</td>
                     <td>{c.school}</td>
                     <td>{c.casting_time}</td>
-                    <td>{c.componens}</td>
+                    <td>{c.components}</td>
                     <td>{c.range}</td>
                     <td>{c.materials}</td>
                     <td>{c.duration}</td>
@@ -68,7 +60,6 @@ render() {
                 </tr>)}
             </tbody>
         </table>
-        <button  className="btn btn-primary"  onClick=  {  this.nextPage  }>Next</button>
     </div>
     );
 }

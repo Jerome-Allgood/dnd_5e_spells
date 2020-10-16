@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'dnd_spells.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_db',
-        'USER': 'user_name',
-        'PASSWORD': 'password',
-        'HOST': '127.0.0.1',
+        'NAME': 'spells_db',
+        'USER': 'spellsadmin',
+        'PASSWORD': 'changeme',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }

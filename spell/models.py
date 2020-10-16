@@ -4,11 +4,6 @@ from multiselectfield import MultiSelectField
 
 
 class Spell(models.Model):
-	class Components(models.TextChoices):
-		VERBAL = 'V', _('Verbal')
-		SOMATIC = 'S', _('Somatic')
-		MATERIAL = 'M', _('Material')
-
 	class Schools(models.TextChoices):
 		ILLUSION = 'IL', _('Illusion')
 		ENCHANTMENT = 'EN', _('Enchantment')
@@ -34,14 +29,28 @@ class Spell(models.Model):
 	name_en = models.CharField(max_length=255, blank=True, null=True)
 	text_en = models.TextField(blank=True, null=True)
 	materials_en = models.CharField(max_length=255, blank=True, null=True)
-	components = MultiSelectField(
-		choices=Components.choices, max_length=7, max_choices=3, null=True,
-		blank=True
-	)
+	components = models.ManyToManyField('Component', null=True, blank=True)
 
 	class Meta:
 		verbose_name = _('Spell')
 		verbose_name_plural = _('Spells')
+
+	def __str__(self):
+		return self.name
+
+
+class Component(models.Model):
+
+	class Components(models.TextChoices):
+		VERBAL = 'V', _('Verbal')
+		SOMATIC = 'S', _('Somatic')
+		MATERIAL = 'M', _('Material')
+
+	name = models.CharField(max_length=1, choices=Components.choices, unique=True)
+
+	class Meta:
+		verbose_name = _('Component')
+		verbose_name_plural = _('Components')
 
 	def __str__(self):
 		return self.name

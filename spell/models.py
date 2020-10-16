@@ -21,15 +21,15 @@ class Spell(models.Model):
 							  null=True)
 	casting_time = models.CharField(max_length=255, blank=True, null=True)
 	range = models.CharField(max_length=255, blank=True, null=True)
-	materials = models.CharField(max_length=255, blank=True, null=True)
+	materials = models.TextField(blank=True, null=True)
 	duration = models.CharField(max_length=255, blank=True, null=True)
 	source = models.CharField(max_length=255, blank=True, null=True)
 	ritual = models.BooleanField(default=False, blank=True, null=True)
 	concentration = models.BooleanField(default=False, blank=True, null=True)
 	name_en = models.CharField(max_length=255, blank=True, null=True)
 	text_en = models.TextField(blank=True, null=True)
-	materials_en = models.CharField(max_length=255, blank=True, null=True)
-	components = models.ManyToManyField('Component', null=True, blank=True)
+	materials_en = models.TextField(blank=True, null=True)
+	components = models.ManyToManyField('Component')
 
 	class Meta:
 		verbose_name = _('Spell')
